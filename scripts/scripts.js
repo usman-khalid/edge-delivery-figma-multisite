@@ -134,6 +134,15 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
+async function loadTheme(doc, theme, site) {
+  const themeCSS = doc.querySelector('#theme-styles');
+  themeCSS.href = `${window.hlx.codeBasePath}/styles/themes/${theme}/${theme}.css`;
+
+  if (site) {
+    doc.body.dataset.site = site;
+  }
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
@@ -141,6 +150,8 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   doc.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  const theme = getMetadata('theme');
+  await loadTheme(doc, theme);
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }
