@@ -34,39 +34,13 @@ StyleDictionary.registerTransform({
 });
 
 /**
- * Custom transform to convert font weight values to numerical equivalents.
- * e.g. 'Light' => '300'.
- */
-StyleDictionary.registerTransform({
-  name: 'fontWeight/custom',
-  type: 'value',
-  filter: (token) => token.name.includes('toro-font-weight'),
-  transform: (token) =>
-    transformFontWeight({
-      ...token,
-      value: token.value.replaceAll("'", ''),
-      type: 'fontWeight',
-    }),
-});
-
-/**
  * Builds the design system.
  */
-async function buildTakedaDesignSystem() {
+async function buildDesignSystem() {
   const $themes = JSON.parse(await promises.readFile('./tokens/$themes.json'));
   const configs = $themes.map(({ selectedTokenSets, name }) => ({
     log: {
       warnings: 'disabled',
-    },
-    hooks: {
-      filters: {
-        'toro-filter': (token) => {
-          // remove tokens for brand notes
-          return (
-            !token.name.includes('brand-notes') && !token.name.includes('global-notes') && !token.name.includes('notes')
-          );
-        },
-      },
     },
     source: Object.entries(selectedTokenSets)
       .filter(([, val]) => val !== 'disabled')
@@ -74,7 +48,7 @@ async function buildTakedaDesignSystem() {
     preprocessors: ['tokens-studio'],
     platforms: {
       css: {
-        prefix: 'toro',
+        prefix: 'ds',
         transformGroup: 'tokens-studio',
         transforms: [
           'name/kebab',
@@ -84,7 +58,6 @@ async function buildTakedaDesignSystem() {
           'time/seconds',
           'fontFamily/css',
           'content/quote',
-          'fontWeight/custom',
         ],
         files: [
           {
@@ -93,7 +66,6 @@ async function buildTakedaDesignSystem() {
             options: {
               outputReferences: true,
             },
-            filter: 'toro-filter',
           },
         ],
       },
@@ -106,17 +78,6 @@ async function buildTakedaDesignSystem() {
     await sd.buildAllPlatforms();
   }
   await Promise.all(configs.map(cleanAndBuild));
-
-  const fs = promises;
-  const fallbackTheme = $themes[0];
-  const fallbackFile = `./styles/themes/${toKebabCase(fallbackTheme.name)}/${toKebabCase(fallbackTheme.name)}.css`;
-  const mapFile = './css-vars.map.css';
-
-  try {
-    await fs.copyFile(fallbackFile, mapFile);
-  } catch (e) {
-    console.warn(`Failed to create css-vars.map.css:`, e.message);
-  }
 }
 
-buildTakedaDesignSystem();
+buildDesignSystem();
