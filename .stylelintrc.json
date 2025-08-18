@@ -1,3 +1,4 @@
 {
+  "ignoreFiles": ["styles/themes/**/*.css"],
   "extends": ["stylelint-config-standard"]
 }
