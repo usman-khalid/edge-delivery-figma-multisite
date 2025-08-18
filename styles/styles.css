@@ -189,8 +189,8 @@ button {
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background-color: var(--ds-component-button-primary-bg);
+  color: #fff;
   cursor: pointer;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -212,9 +212,8 @@ button:disabled:hover {
 
 a.button.secondary,
 button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
-  color: var(--text-color);
+  background-color: var(--ds-component-button-secondary-bg);
+  color: #fff;
 }
 
 main img {
