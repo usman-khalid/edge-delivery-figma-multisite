@@ -38,6 +38,8 @@
   --ds-border-xl: 0.5rem;
   --ds-component-card-bg: var(--ds-brand-neutral);
   --ds-component-card-headline: var(--ds-brand-primary);
+  --ds-component-button-primary-bg: var(--ds-brand-primary);
+  --ds-component-button-secondary-bg: var(--ds-brand-secondary);
   --ds-global-header-bg: var(--ds-brand-primary);
   --ds-global-footer-bg: var(--ds-brand-secondary);
 }
