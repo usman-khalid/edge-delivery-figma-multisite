@@ -5,8 +5,9 @@ import yargs from 'yargs';
 import boxen from 'boxen';
 import { execa } from 'execa';
 import { hideBin } from 'yargs/helpers';
+import getPort, { portNumbers } from 'get-port';
 
-const { theme: cliTheme } = yargs(hideBin(process.argv)).option('theme', {
+const { theme: cliTheme, port: cliPort } = yargs(hideBin(process.argv)).option('theme', {
   alias: 't',
   description: 'Specify the site to use',
   type: 'string',
@@ -58,6 +59,8 @@ async function proxyToAEM(theme) {
 
   try {
     const aemArgs = ['up'];
+    const chosenPort = await getPort({ port: portNumbers(3000, 65535) });
+    aemArgs.push('--port', cliPort || chosenPort.toString());
     
     if (siteToken) {
       aemArgs.push('--site-token', siteToken);
