@@ -7,7 +7,6 @@
   --ds-brand-secondary: #09bce9;
   --ds-brand-tertiary: #a9ebfe;
   --ds-brand-neutral: #c9c9c9;
-  --ds-global-header-bg: #ffffff;
   --ds-global-header-link: #ffffff;
   --ds-global-border: #ffffff;
   --ds-global-disabled: #ffffff;
@@ -39,5 +38,6 @@
   --ds-border-xl: 0.5rem;
   --ds-component-card-bg: var(--ds-brand-neutral);
   --ds-component-card-headline: var(--ds-brand-primary);
+  --ds-global-header-bg: var(--ds-brand-primary);
   --ds-global-footer-bg: var(--ds-brand-secondary);
 }
