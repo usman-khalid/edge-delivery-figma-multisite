@@ -6,9 +6,6 @@ import boxen from 'boxen';
 import { execa } from 'execa';
 import { hideBin } from 'yargs/helpers';
 
-const TAKEDA_THEME = 'takeda';
-const DEFAULT_CONTENT_SOURCE = 'whitelabel';
-
 const { theme: cliTheme } = yargs(hideBin(process.argv)).option('theme', {
   alias: 't',
   description: 'Specify the site to use',
@@ -16,15 +13,15 @@ const { theme: cliTheme } = yargs(hideBin(process.argv)).option('theme', {
 }).argv;
 
 const themesDirectory = path.join(process.cwd(), 'styles', 'themes');
+const CONFIG_BUS_ORG = 'usman-khalid';
 
 async function proxyToAEM(theme) {
   let proxyUrl = null;
-  proxyUrl = `https://main--${theme.replace('-', '')}--onetakeda.aem.page`;
+  proxyUrl = `https://main--${theme}-da--${CONFIG_BUS_ORG}.aem.page`;
   
   let siteToken = null;
   let contentResponse = await fetch(proxyUrl);
 
-  // Handle 401 Unauthorized errors by prompting for a token
   if (contentResponse.status === 401) {
     console.log(`Authentication required for ${theme}.`);
     
@@ -39,18 +36,11 @@ async function proxyToAEM(theme) {
     
     siteToken = tokenAnswer.token;
     
-    // Retry the fetch with the provided token
     contentResponse = await fetch(proxyUrl, {
       headers: {
         'Authorization': `token ${siteToken}`
       }
     });
-  }
-
-  if (!contentResponse.ok) {
-    console.error(`${theme} doesn't have a content source set up. Falling back to ${DEFAULT_CONTENT_SOURCE} content.`);
-    proxyUrl = `https://main--${DEFAULT_CONTENT_SOURCE}--onetakeda.aem.page`;
-    siteToken = null; // Reset token if we fall back to default content
   }
 
   const env = {
@@ -67,10 +57,8 @@ async function proxyToAEM(theme) {
   );
 
   try {
-    // Prepare command arguments
     const aemArgs = ['up'];
     
-    // Add site-token flag if we have a token
     if (siteToken) {
       aemArgs.push('--site-token', siteToken);
     }
@@ -89,9 +77,9 @@ async function proxyToAEM(theme) {
   }
 }
 
-function getThemes() {
-  return fs.readdirSync(themesDirectory).filter((file) => 
-    file !== TAKEDA_THEME && fs.statSync(path.join(themesDirectory, file)).isDirectory()
+function getThemes() { 
+  return fs.readdirSync(themesDirectory).filter((file) =>
+    fs.statSync(path.join(themesDirectory, file)).isDirectory()
   );
 }
 
