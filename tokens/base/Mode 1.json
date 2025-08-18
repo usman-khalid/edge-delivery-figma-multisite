@@ -1,0 +1,104 @@
+{
+  "space": {
+    "xxxxs": {
+      "value": "0.062rem",
+      "type": "dimension"
+    },
+    "xxxs": {
+      "value": "0.125rem",
+      "type": "dimension"
+    },
+    "xxs": {
+      "value": "0.25rem",
+      "type": "dimension"
+    },
+    "xs": {
+      "value": "0.5rem",
+      "type": "dimension"
+    },
+    "sm": {
+      "value": "1rem",
+      "type": "dimension"
+    },
+    "md": {
+      "value": "1.5rem",
+      "type": "dimension"
+    },
+    "lg": {
+      "value": "2rem",
+      "type": "dimension"
+    },
+    "xl": {
+      "value": "2.5rem",
+      "type": "dimension"
+    },
+    "xxl": {
+      "value": "4rem",
+      "type": "dimension"
+    },
+    "xxxl": {
+      "value": "5rem",
+      "type": "dimension"
+    },
+    "xs2": {
+      "value": "0.75rem",
+      "type": "dimension"
+    }
+  },
+  "radius": {
+    "none": {
+      "value": "0rem",
+      "type": "dimension"
+    },
+    "xs": {
+      "value": "0.125rem",
+      "type": "dimension"
+    },
+    "sm": {
+      "value": "0.25rem",
+      "type": "dimension"
+    },
+    "md": {
+      "value": "0.5rem",
+      "type": "dimension"
+    },
+    "lg": {
+      "value": "1rem",
+      "type": "dimension"
+    },
+    "xl": {
+      "value": "1.5rem",
+      "type": "dimension"
+    },
+    "xxl": {
+      "value": "4rem",
+      "type": "dimension"
+    },
+    "xxxl": {
+      "value": "6.25rem",
+      "type": "dimension"
+    }
+  },
+  "border": {
+    "xs": {
+      "value": "0.062rem",
+      "type": "dimension"
+    },
+    "sm": {
+      "value": "0.125rem",
+      "type": "dimension"
+    },
+    "md": {
+      "value": "0.25rem",
+      "type": "dimension"
+    },
+    "lg": {
+      "value": "0.375rem",
+      "type": "dimension"
+    },
+    "xl": {
+      "value": "0.5rem",
+      "type": "dimension"
+    }
+  }
+}

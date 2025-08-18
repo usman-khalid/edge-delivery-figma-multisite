@@ -1,0 +1,9 @@
+{
+  "tokenSetOrder": [
+    "global",
+    "global/Mode 1",
+    "themes/lorem",
+    "themes/ipsum",
+    "base/Mode 1"
+  ]
+}
