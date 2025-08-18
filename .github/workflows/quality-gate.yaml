@@ -1,8 +1,8 @@
-name: Build
-on: [push]
+name: Quality Gate
+on: [ push ]
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4

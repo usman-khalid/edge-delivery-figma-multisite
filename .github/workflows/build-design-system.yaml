@@ -1,0 +1,35 @@
+name: Design System
+
+on:
+  push:
+    branches-ignore:
+    - 'main'
+    paths:
+    - 'tokens/**'
+
+jobs:
+  build-design-system:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get current time
+      uses: josStorer/get-current-time@v2
+      id: current-time
+      with:
+        format: YYYYMMDD-HH
+        timezone: US/Eastern
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+    - run: npm install
+    - run: npm run build-design-system
+      env:
+        CI: true
+    - uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: 'chore: design system build [${{ steps.current-time.outputs.readableTime }}]'
+        commit_options: '--no-verify'
+        commit_user_name: ds-build-bot
+        commit_user_email: ds-build-bot@adobe.com
+        commit_author: Design System Build Bot <ds-build-bot@adobe.com>
