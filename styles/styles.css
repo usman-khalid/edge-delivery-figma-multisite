@@ -163,13 +163,12 @@ button {
 
 /* links */
 a:any-link {
-  color: var(--ds-brand-primary);
+  color: var(--ds-global-link);
   text-decoration: none;
   word-break: break-word;
 }
 
 a:hover {
-  color: var(--ds-brand-secondary);
   text-decoration: underline;
 }
 

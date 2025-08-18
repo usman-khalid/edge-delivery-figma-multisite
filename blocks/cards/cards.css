@@ -16,6 +16,10 @@
   margin: 16px;
 }
 
+.cards .cards-card-body :is(h1, h2, h3, h4, h5, h6), .cards .cards-card-body p > strong {
+  color: var(--ds-component-card-headline);
+}
+
 .cards .cards-card-image {
   line-height: 0;
 }
