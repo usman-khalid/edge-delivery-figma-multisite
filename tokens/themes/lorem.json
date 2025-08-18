@@ -32,7 +32,7 @@
   "global": {
     "header": {
       "header-bg": {
-        "value": "#ffffff",
+        "value": "{brand.brand-secondary}",
         "type": "color"
       },
       "header-link": {
