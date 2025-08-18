@@ -1,0 +1,66 @@
+{
+  "brand": {
+    "brand-primary": {
+      "value": "#356bcf",
+      "type": "color"
+    },
+    "brand-secondary": {
+      "value": "#09bce9",
+      "type": "color"
+    },
+    "brand-tertiary": {
+      "value": "#a9ebfe",
+      "type": "color"
+    },
+    "brand-neutral": {
+      "value": "#c9c9c9",
+      "type": "color"
+    }
+  },
+  "component": {
+    "card": {
+      "card-bg": {
+        "value": "{brand.brand-neutral}",
+        "type": "color"
+      },
+      "card-headline": {
+        "value": "{brand.brand-primary}",
+        "type": "color"
+      }
+    }
+  },
+  "global": {
+    "header": {
+      "header-bg": {
+        "value": "#ffffff",
+        "type": "color"
+      },
+      "header-link": {
+        "value": "#ffffff",
+        "type": "color"
+      }
+    },
+    "border": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "disabled": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "site-bg": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "footer": {
+      "footer-bg": {
+        "value": "{brand.brand-secondary}",
+        "type": "color"
+      },
+      "footer-link": {
+        "value": "#ffffff",
+        "type": "color"
+      }
+    }
+  }
+}

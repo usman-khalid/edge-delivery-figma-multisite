@@ -1,0 +1,22 @@
+[
+  {
+    "id": "fbe49d5c828b0c057908bac49af2a310489e62b9",
+    "name": "lorem",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "global": "source",
+      "base/Mode 1": "source",
+      "themes/lorem": "enabled"
+    }
+  },
+  {
+    "id": "950d45a1fee1536d951a9f8fc956c94915e68af7",
+    "name": "ipsum",
+    "$figmaStyleReferences": {},
+    "selectedTokenSets": {
+      "global": "source",
+      "themes/ipsum": "enabled",
+      "base/Mode 1": "source"
+    }
+  }
+]
