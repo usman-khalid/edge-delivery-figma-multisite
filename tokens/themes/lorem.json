@@ -27,6 +27,14 @@
         "value": "{brand.brand-primary}",
         "type": "color"
       }
+    },
+    "button-primary-bg": {
+      "value": "{brand.brand-primary}",
+      "type": "color"
+    },
+    "button-secondary-bg": {
+      "value": "{brand.brand-secondary}",
+      "type": "color"
     }
   },
   "global": {
