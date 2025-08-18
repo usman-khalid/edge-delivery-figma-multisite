@@ -306,7 +306,7 @@ header .breadcrumbs ol li {
 }
 
 header .breadcrumbs ol li:not(:last-child)::after {
-  content: '/';f
+  content: '/';
   padding-left: 1ch;
 }
 

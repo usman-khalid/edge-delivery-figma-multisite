@@ -2,16 +2,21 @@
 
 This repository is a multisite Edge Delivery Services front-end that consumes design tokens exported from Figma (Tokens Studio format) and turns them into theme-specific CSS custom properties. Pages select a theme via metadata, and the runtime loads the corresponding theme stylesheet.
 
+### Pre-requisites
+- [Token Studio Pro License](https://tokens.studio/pro-pricing)
+- [Figma Pro License](https://www.figma.com/professional/)
+
+The above are required to correctly utilize multi dimensional theming in using Figma & the token studio plugin.
+
 ### Key capabilities
 - Themeable design system generated from Figma Tokens (via Style Dictionary + Tokens Studio transforms)
 - Multisite local dev workflow with AEM CLI proxying to the selected site
-- Edge Delivery branch previews for each site/theme
 
 ---
 
 ## Repository structure
 
-- `tokens/`: Source of truth for design tokens (Figma/Tokens Studio JSON)
+- `tokens/`: Source of truth for design tokens
   - `$themes.json`: List of themes and enabled token sets per theme
   - `global.json`, `global/`, `base/`, `themes/`: Token set files as exported from Tokens Studio
 - `tools/scripts/build-design-system.mjs`: Builds theme CSS from tokens using Style Dictionary
@@ -24,15 +29,9 @@ This repository is a multisite Edge Delivery Services front-end that consumes de
 
 ## How the Figma integration works
 
-This project expects tokens in the Tokens Studio JSON format. The build script reads `tokens/$themes.json` and, for each theme, collects the token sets marked `enabled` or `source`, and then builds CSS variables with the `ds` prefix.
+The build script reads `tokens/$themes.json` and, for each theme, collects the token and builds CSS variables with the `ds` prefix (this can be changed [here](https://github.com/usman-khalid/edge-delivery-figma-multisite/blob/main/tools/scripts/build-design-system.mjs#L51) to reflect the name of the design system)
 
-Build pipeline (simplified):
-1. Parse `tokens/$themes.json` to enumerate themes and selected token sets
-2. Read the corresponding token files under `tokens/`
-3. Run Style Dictionary with `@tokens-studio/sd-transforms`
-4. Output `styles/themes/<theme>/<theme>.css` containing `:root { --ds-* }`
-
-Example output variables (truncated):
+Example output variables:
 
 ```css
 :root {
@@ -91,88 +90,33 @@ What this does:
 
 If the target site requires authentication, you will be prompted for a token.
 
-### Build the design system (CI-first)
-
-You typically do NOT need to run the build locally. A GitHub Actions workflow builds and commits the generated CSS whenever token files change on any non-`main` branch.
-
-- Workflow: `.github/workflows/build-design-system.yaml` ("Design System")
-- Trigger: `push` on branches except `main`, when files under `tokens/**` change
-- Action: runs `npm run build-design-system` and auto-commits the generated CSS back to the same branch
-
-Optional local preview:
-
-```bash
-npm run build-design-system
-```
-
-Do not commit locally generated CSS if you ran it for preview; CI will regenerate and commit it.
-
 ---
 
 ## Designer workflow: Push tokens from Figma and preview on a branch
 
-This workflow assumes designers use the Tokens Studio plugin in Figma.
+Designers can easily create new themes, update existing ones or modify tokens and see the result instantaneously on a branch URL.
 
-1) Import variables from the design system. This will import anything new or modify any existing tokens
-
-2) Export/sync tokens to Git
-- Preferred: Configure Tokens Studio GitHub Sync to push JSON into this repository’s `tokens/` directory using the same folder structure
-- Alternative: Export token JSON from Figma and add/update files under `tokens/` manually
-
-3) Configure themes in `$themes.json`
-- Add or update entries with the theme `name` and `selectedTokenSets` mapping to the token sets to include
-- Example (excerpt):
-
-```json
-[
-  {
-    "name": "lorem",
-    "selectedTokenSets": {
-      "global": "source",
-      "base/Mode 1": "source",
-      "themes/lorem": "enabled"
-    }
-  }
-]
-```
-
-4) Push your token changes; CI generates CSS variables
-- Push commits that modify files under `tokens//**`
-- The "Design System" workflow will build and auto-commit `styles/themes/<theme>/<theme>.css` to your branch
-
-5) Open a PR and preview on an Edge Delivery branch URL
-- Commit ONLY the updated `tokens/` JSON (CI will commit generated CSS)
-- Open a branch/PR
-- Preview using the Edge Delivery branch URL pattern:
-  - Preview: `https://{branch}--{site-repo}--{org}.aem.page`
-  - Live: `https://{branch}--{site-repo}--{org}.aem.live`
-
-Notes:
-- Ensure your pages include page metadata `theme` set to the corresponding theme name so the correct CSS loads
-- In multisite setups, each site/theme may publish from its own repository (for example, URLs like `https://main--lorem-da--{org}.aem.page`). Coordinate with engineering to confirm the site repo and branch naming
- - Wait for the GitHub Action to finish before validating the branch preview (it will add the generated CSS commit)
-
-6) Verify in the browser
-- Load a page on the branch URL
-- Confirm the correct theme file is requested: `/styles/themes/<theme>/<theme>.css`
-- Validate colors, spacing, and components reflect the new tokens
+For example, if a designer updates the value of the `component-card-bg` token, then pushes to a branch called `card-bg`, the udpate is available at `https://card-bg--{site}--{org}--aem.page`
 
 ---
 
 ## Adding a new theme/site
 
-1. Create a token set file under `tokens/themes/<new-theme>.json`
-2. Add an entry to `tokens/$themes.json` with `name: <new-theme>` and mark the relevant token sets as `enabled`/`source`
+1. Add a new theme in Figma and update tokens for it accordingly
+2. Add a new site to your [repoless setup](https://www.aem.live/docs/repoless)
 3. Push your changes; the CI workflow will generate `styles/themes/<new-theme>/<new-theme>.css` and auto-commit it to your branch
-4. Add `meta name="theme" content="<new-theme>"` to pages that should use it
-5. Commit and open a PR; preview at the branch URL for the corresponding site
+4. Add a metadata property to the new site's content to apply the new theme to all pages. Sample: https://da.live/sheet#/usman-khalid/ipsum-da/metadata
+5. Preview your updates and if things are looking good, a PR can be raised to get it into `main`
 
 ---
 
-## CI automation
+### CI Automation
 
-- The Design System workflow (`.github/workflows/build-design-system.yaml`) runs on token changes and commits generated CSS using a bot account (`ds-build-bot`).
-- The Quality Gate workflow (`.github/workflows/quality-gate.yaml`) runs linting on every push.
+You typically do NOT need to run the design system build locally. A GitHub Actions workflow builds and commits the generated CSS whenever token files change on any non-`main` branch.
+
+- Workflow: `.github/workflows/build-design-system.yaml` ("Design System")
+- Trigger: `push` on branches except `main`, when files under `tokens/**` change
+- Action: runs `npm run build-design-system` and auto-commits the generated CSS back to the same branch
 
 ---
 
@@ -184,20 +128,10 @@ Notes:
 
 ---
 
-## Linting
-
-```bash
-npm run lint       # runs JS + CSS linters
-npm run lint:js
-npm run lint:css
-```
-
----
-
 ## Troubleshooting
 
 - Theme stylesheet 404
-  - Ensure `npm run build-design-system` has been run and the CSS exists under `styles/themes/<theme>/<theme>.css`
+  - Ensure the theme has been synced correctly and the CSS exists under `styles/themes/<theme>/<theme>.css`
   - Check that the page has `meta[name="theme"]` matching the theme folder name
 
 - Tokens not taking effect
@@ -207,11 +141,3 @@ npm run lint:css
 - Local dev cannot reach content
   - If prompted, provide a valid site token for the proxied AEM Pages URL
   - Make sure the site exists and is accessible at the printed proxy URL
-
----
-
-## References
-
-- Tokens Studio for Figma (design tokens and GitHub sync)
-- Style Dictionary with Tokens Studio transforms (`@tokens-studio/sd-transforms`)
-- AEM Edge Delivery Services (branch URLs: `.aem.page` for preview, `.aem.live` for live)
