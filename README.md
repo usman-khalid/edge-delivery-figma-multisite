@@ -2,6 +2,10 @@
 
 This repository is a multisite Edge Delivery Services front-end that consumes design tokens exported from Figma (Tokens Studio format) and turns them into theme-specific CSS custom properties. Pages select a theme via metadata, and the runtime loads the corresponding theme stylesheet.
 
+<video width="600" height="400" controls>
+  <source src="docs/figma-demo.mp4" type="video/mp4">
+</video>
+
 ### Pre-requisites
 - [Token Studio Pro License](https://tokens.studio/pro-pricing)
 - [Figma Pro License](https://www.figma.com/professional/)
@@ -11,6 +15,10 @@ The above are required to correctly utilize multi dimensional theming in using F
 ### Key capabilities
 - Themeable design system generated from Figma Tokens (via Style Dictionary + Tokens Studio transforms)
 - Multisite local dev workflow with AEM CLI proxying to the selected site
+
+### Sample Sites:
+- https://main--lorem-da--usman-khalid.aem.page
+- https://main--ipsum-da--usman-khalid.aem.page
 
 ---
 
