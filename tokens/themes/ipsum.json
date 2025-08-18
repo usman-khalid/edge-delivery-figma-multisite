@@ -69,6 +69,10 @@
         "value": "#ffffff",
         "type": "color"
       }
+    },
+    "link": {
+      "value": "{brand.brand-primary}",
+      "type": "color"
     }
   }
 }

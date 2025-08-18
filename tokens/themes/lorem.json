@@ -40,7 +40,7 @@
   "global": {
     "header": {
       "header-bg": {
-        "value": "{brand.brand-secondary}",
+        "value": "{brand.brand-primary}",
         "type": "color"
       },
       "header-link": {
@@ -62,13 +62,17 @@
     },
     "footer": {
       "footer-bg": {
-        "value": "{brand.brand-tertiary}",
+        "value": "{brand.brand-secondary}",
         "type": "color"
       },
       "footer-link": {
         "value": "#ffffff",
         "type": "color"
       }
+    },
+    "link": {
+      "value": "{brand.brand-primary}",
+      "type": "color"
     }
   }
 }
