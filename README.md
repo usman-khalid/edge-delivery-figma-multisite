@@ -1,6 +1,6 @@
 ## Edge Delivery Multisite + Figma Integration
 
-This repository is a multisite Edge Delivery Services front-end that consumes design tokens exported from Figma (Tokens Studio format) and turns them into theme-specific CSS custom properties. Pages select a theme via metadata, and the runtime loads the corresponding theme stylesheet.
+This repository is a multisite Edge Delivery Services front-end that consumes design tokens from a Figma design system with multiple themes. A theme gets applied to a site via bulk metadata, and the runtime loads the corresponding theme stylesheet.
 
 https://github.com/user-attachments/assets/ec8a8ccb-ce0a-496c-8b58-68cd0b150179
 
@@ -15,8 +15,12 @@ The above are required to correctly utilize multi dimensional theming in using F
 - Multisite local dev workflow with AEM CLI proxying to the selected site
 
 ### Sample Sites:
+The two sites below are both pointing to this codebase.
+
 - https://main--lorem-da--usman-khalid.aem.page
 - https://main--ipsum-da--usman-khalid.aem.page
+
+The Figma design system integrated with this codebase: https://www.figma.com/design/sFPncyZmw0IKULiw38FBsm/Edge-Delivery-Multi-Site-Design-System?node-id=0-1&p=f&t=PpqiiHWzwNCGLRJ7-0
 
 ---
 
@@ -35,7 +39,7 @@ The above are required to correctly utilize multi dimensional theming in using F
 
 ## How the Figma integration works
 
-The build script reads `tokens/$themes.json` and, for each theme, collects the token and builds CSS variables with the `ds` prefix (this can be changed [here](https://github.com/usman-khalid/edge-delivery-figma-multisite/blob/main/tools/scripts/build-design-system.mjs#L51) to reflect the name of the design system)
+The build script reads `tokens/$themes.json` and, for each theme, collects the tokens and builds CSS variables with the `ds` prefix (this prefix be changed [here](https://github.com/usman-khalid/edge-delivery-figma-multisite/blob/main/tools/scripts/build-design-system.mjs#L51) to reflect the name of the design system, or removed entirely)
 
 Example output variables:
 
@@ -96,21 +100,23 @@ What this does:
 
 If the target site requires authentication, you will be prompted for a token.
 
+If multiple sites are being worked on locally, the prompt will automatically pick the next available port on `localhost`.
+
 ---
 
 ## Designer workflow: Push tokens from Figma and preview on a branch
 
 Designers can easily create new themes, update existing ones or modify tokens and see the result instantaneously on a branch URL.
 
-For example, if a designer updates the value of the `component-card-bg` token, then pushes to a branch called `card-bg`, the udpate is available at `https://card-bg--{site}--{org}--aem.page`
+For example, if a designer updates the value of the `component-card-bg` token, then pushes to a branch called `card-bg`, the update is available at `https://card-bg--{site}--{org}--aem.page` once the design system is built and the resulting CSS is committed to the branch via the automated workflow.
 
 ---
 
 ## Adding a new theme/site
 
 1. Add a new theme in Figma and update tokens for it accordingly
-2. Add a new site to your [repoless setup](https://www.aem.live/docs/repoless)
-3. Push your changes; the CI workflow will generate `styles/themes/<new-theme>/<new-theme>.css` and auto-commit it to your branch
+2. Add a new site to the [repoless setup](https://www.aem.live/docs/repoless)
+3. Push your changes - the CI workflow will generate `styles/themes/<new-theme>/<new-theme>.css` and auto-commit it to the branch
 4. Add a metadata property to the new site's content to apply the new theme to all pages. Sample: https://da.live/sheet#/usman-khalid/ipsum-da/metadata
 5. Preview your updates and if things are looking good, a PR can be raised to get it into `main`
 
@@ -120,7 +126,7 @@ For example, if a designer updates the value of the `component-card-bg` token, t
 
 You typically do NOT need to run the design system build locally. A GitHub Actions workflow builds and commits the generated CSS whenever token files change on any non-`main` branch.
 
-- Workflow: `.github/workflows/build-design-system.yaml` ("Design System")
+- Workflow: `.github/workflows/build-design-system.yaml`
 - Trigger: `push` on branches except `main`, when files under `tokens/**` change
 - Action: runs `npm run build-design-system` and auto-commits the generated CSS back to the same branch
 
