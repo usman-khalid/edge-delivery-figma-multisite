@@ -23,7 +23,7 @@ The two sites below are both pointing to this codebase.
 
 The Figma design system integrated with this codebase: https://www.figma.com/design/sFPncyZmw0IKULiw38FBsm/Edge-Delivery-Multi-Site-Design-System?node-id=0-1&p=f&t=PpqiiHWzwNCGLRJ7-0
 
-_Request access to explore variables and token library_
+_Reach out for the password to access and explore variables/token library_
 
 ---
 
