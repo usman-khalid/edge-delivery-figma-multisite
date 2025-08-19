@@ -134,13 +134,9 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
-async function loadTheme(doc, theme, site) {
+async function loadTheme(doc, theme) {
   const themeCSS = doc.querySelector('#theme-styles');
   themeCSS.href = `${window.hlx.codeBasePath}/styles/themes/${theme}/${theme}.css`;
-
-  if (site) {
-    doc.body.dataset.site = site;
-  }
 }
 
 /**
