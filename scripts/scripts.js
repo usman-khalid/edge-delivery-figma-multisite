@@ -110,7 +110,7 @@ function decorateSections(main) {
             .split(',')
             .filter((style) => style)
             .map((style) => toClassName(style.trim()));
-          styles.forEach((style) => { 
+          styles.forEach((style) => {
             section.classList.add(style);
             if (style.startsWith('bg-')) {
               section.style.backgroundColor = `var(--ds-${style.replace('bg-', '')})`;
