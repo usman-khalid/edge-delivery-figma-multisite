@@ -10,13 +10,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Page not found">
   <script src="/scripts/aem.js" type="module"></script>
-  <script src="/scripts/scripts.js" type="module"></script>
   <link rel="stylesheet" href="/styles/styles.css"/>
   <script preload type="module">
 
     const loadTheme = async () => {
         const response = await fetch('/metadata.json');
-        const placeholders = await fetchPlaceholders();
         if (response.ok) {
             const metadata = await response.json();
             const {data} = metadata;
@@ -31,7 +29,6 @@
             scriptElement.setAttribute('type', 'module');
             scriptElement.setAttribute('crossorigin', 'use-credentials');
             document.head.appendChild(scriptElement);
-            document.title = placeholders.pageNotFoundTitle || 'Page not found';
         }
     };
     (async () => {
@@ -61,6 +58,7 @@
     sampleRUM('404', { source: document.referrer });
   </script>
   <link rel="stylesheet" href="/styles/styles.css">
+  <link id="theme-styles" rel="stylesheet" href="#">
   <style>
     main.error {
       min-height: calc(100vh - var(--header-height));
