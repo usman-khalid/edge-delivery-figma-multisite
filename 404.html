@@ -12,6 +12,32 @@
   <script src="/scripts/aem.js" type="module"></script>
   <script src="/scripts/scripts.js" type="module"></script>
   <link rel="stylesheet" href="/styles/styles.css"/>
+  <script preload type="module">
+
+    const loadTheme = async () => {
+        const response = await fetch('/metadata.json');
+        const placeholders = await fetchPlaceholders();
+        if (response.ok) {
+            const metadata = await response.json();
+            const {data} = metadata;
+            const themeObj = data.find((key) => key.theme);
+            const {theme, brandName} = themeObj;
+            const metaElement = document.createElement('meta');
+            metaElement.setAttribute('name', 'theme');
+            metaElement.setAttribute('content', theme);
+            document.head.appendChild(metaElement);
+            const scriptElement = document.createElement('script');
+            scriptElement.setAttribute('src', '/scripts/scripts.js');
+            scriptElement.setAttribute('type', 'module');
+            scriptElement.setAttribute('crossorigin', 'use-credentials');
+            document.head.appendChild(scriptElement);
+            document.title = placeholders.pageNotFoundTitle || 'Page not found';
+        }
+    };
+    (async () => {
+        const response = await loadTheme();
+    })();
+</script>
 
   <!--  404 Specific Content  -->
   <script type="module">
