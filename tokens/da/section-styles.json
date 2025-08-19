@@ -1,0 +1,10 @@
+{
+  "brand-primary": {
+    "$type": "other",
+    "$value": "{brand.brand-primary}"
+  },
+  "brand-secondary": {
+    "$type": "other",
+    "$value": "{brand.brand-secondary}"
+  }
+}

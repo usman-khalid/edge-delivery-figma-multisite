@@ -1,78 +1,78 @@
 {
   "brand": {
     "brand-primary": {
-      "value": "#d83434",
-      "type": "color"
+      "$type": "color",
+      "$value": "#d83434"
     },
     "brand-secondary": {
-      "value": "#169d8f",
-      "type": "color"
+      "$type": "color",
+      "$value": "#169d8f"
     },
     "brand-tertiary": {
-      "value": "#f1529c",
-      "type": "color"
+      "$type": "color",
+      "$value": "#f1529c"
     },
     "brand-neutral": {
-      "value": "#e6e6e6",
-      "type": "color"
+      "$type": "color",
+      "$value": "#e6e6e6"
     }
   },
   "component": {
     "card": {
       "card-bg": {
-        "value": "{brand.brand-neutral}",
-        "type": "color"
+        "$type": "color",
+        "$value": "{brand.brand-neutral}"
       },
       "card-headline": {
-        "value": "{brand.brand-primary}",
-        "type": "color"
+        "$type": "color",
+        "$value": "{brand.brand-primary}"
       }
     },
     "button-primary-bg": {
-      "value": "{brand.brand-primary}",
-      "type": "color"
+      "$type": "color",
+      "$value": "{brand.brand-primary}"
     },
     "button-secondary-bg": {
-      "value": "{brand.brand-secondary}",
-      "type": "color"
+      "$type": "color",
+      "$value": "{brand.brand-secondary}"
     }
   },
   "global": {
     "header": {
       "header-bg": {
-        "value": "{brand.brand-primary}",
-        "type": "color"
+        "$type": "color",
+        "$value": "{brand.brand-primary}"
       },
       "header-link": {
-        "value": "#ffffff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ffffff"
       }
     },
     "border": {
-      "value": "#ffffff",
-      "type": "color"
+      "$type": "color",
+      "$value": "#ffffff"
     },
     "disabled": {
-      "value": "#ffffff",
-      "type": "color"
+      "$type": "color",
+      "$value": "#ffffff"
     },
     "site-bg": {
-      "value": "#ffffff",
-      "type": "color"
+      "$type": "color",
+      "$value": "#ffffff"
     },
     "footer": {
       "footer-bg": {
-        "value": "{brand.brand-secondary}",
-        "type": "color"
+        "$type": "color",
+        "$value": "{brand.brand-secondary}"
       },
       "footer-link": {
-        "value": "#ffffff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ffffff"
       }
     },
     "link": {
-      "value": "{brand.brand-primary}",
-      "type": "color"
+      "$type": "color",
+      "$value": "{brand.brand-primary}"
     }
   }
 }

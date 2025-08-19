@@ -2,236 +2,236 @@
   "system": {
     "critical": {
       "critical-5": {
-        "value": "#ffe4e4",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ffe4e4"
       },
       "critical-10": {
-        "value": "#ffc9c9",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ffc9c9"
       },
       "critical-20": {
-        "value": "#ff9393",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ff9393"
       },
       "critical-30": {
-        "value": "#ff5e5e",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ff5e5e"
       },
       "critical-40": {
-        "value": "#ff2828",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ff2828"
       },
       "critical-50": {
-        "value": "#eb0000",
-        "type": "color"
+        "$type": "color",
+        "$value": "#eb0000"
       },
       "critical-60": {
-        "value": "#c10000",
-        "type": "color"
+        "$type": "color",
+        "$value": "#c10000"
       },
       "critical-70": {
-        "value": "#910000",
-        "type": "color"
+        "$type": "color",
+        "$value": "#910000"
       },
       "critical-80": {
-        "value": "#600000",
-        "type": "color"
+        "$type": "color",
+        "$value": "#600000"
       },
       "critical-90": {
-        "value": "#300000",
-        "type": "color"
+        "$type": "color",
+        "$value": "#300000"
       }
     },
     "caution": {
       "caution-5": {
-        "value": "#fef9e8",
-        "type": "color"
+        "$type": "color",
+        "$value": "#fef9e8"
       },
       "caution-10": {
-        "value": "#fcf3d1",
-        "type": "color"
+        "$type": "color",
+        "$value": "#fcf3d1"
       },
       "caution-20": {
-        "value": "#f9e7a4",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f9e7a4"
       },
       "caution-30": {
-        "value": "#f7da76",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f7da76"
       },
       "caution-40": {
-        "value": "#f4ce49",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f4ce49"
       },
       "caution-50": {
-        "value": "#f1c21b",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f1c21b"
       },
       "caution-60": {
-        "value": "#caa00c",
-        "type": "color"
+        "$type": "color",
+        "$value": "#caa00c"
       },
       "caution-70": {
-        "value": "#977809",
-        "type": "color"
+        "$type": "color",
+        "$value": "#977809"
       },
       "caution-80": {
-        "value": "#655006",
-        "type": "color"
+        "$type": "color",
+        "$value": "#655006"
       },
       "caution-90": {
-        "value": "#322803",
-        "type": "color"
+        "$type": "color",
+        "$value": "#322803"
       }
     },
     "success": {
       "success-5": {
-        "value": "#e1f9e9",
-        "type": "color"
+        "$type": "color",
+        "$value": "#e1f9e9"
       },
       "success-10": {
-        "value": "#c3f3d2",
-        "type": "color"
+        "$type": "color",
+        "$value": "#c3f3d2"
       },
       "success-20": {
-        "value": "#88e8a4",
-        "type": "color"
+        "$type": "color",
+        "$value": "#88e8a4"
       },
       "success-30": {
-        "value": "#38d868",
-        "type": "color"
+        "$type": "color",
+        "$value": "#38d868"
       },
       "success-40": {
-        "value": "#23b24e",
-        "type": "color"
+        "$type": "color",
+        "$value": "#23b24e"
       },
       "success-50": {
-        "value": "#198038",
-        "type": "color"
+        "$type": "color",
+        "$value": "#198038"
       },
       "success-60": {
-        "value": "#14662d",
-        "type": "color"
+        "$type": "color",
+        "$value": "#14662d"
       },
       "success-70": {
-        "value": "#0f4d22",
-        "type": "color"
+        "$type": "color",
+        "$value": "#0f4d22"
       },
       "success-80": {
-        "value": "#0a3316",
-        "type": "color"
+        "$type": "color",
+        "$value": "#0a3316"
       },
       "success-90": {
-        "value": "#051a0b",
-        "type": "color"
+        "$type": "color",
+        "$value": "#051a0b"
       }
     },
     "info": {
       "info-5": {
-        "value": "#e0ebff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#e0ebff"
       },
       "info-10": {
-        "value": "#c2d6ff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#c2d6ff"
       },
       "info-20": {
-        "value": "#85adff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#85adff"
       },
       "info-30": {
-        "value": "#4984ff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#4984ff"
       },
       "info-40": {
-        "value": "#0c5bff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#0c5bff"
       },
       "info-50": {
-        "value": "#0043ce",
-        "type": "color"
+        "$type": "color",
+        "$value": "#0043ce"
       },
       "info-60": {
-        "value": "#0036a5",
-        "type": "color"
+        "$type": "color",
+        "$value": "#0036a5"
       },
       "info-70": {
-        "value": "#00287c",
-        "type": "color"
+        "$type": "color",
+        "$value": "#00287c"
       },
       "info-80": {
-        "value": "#001b52",
-        "type": "color"
+        "$type": "color",
+        "$value": "#001b52"
       },
       "info-90": {
-        "value": "#000d29",
-        "type": "color"
+        "$type": "color",
+        "$value": "#000d29"
       }
     },
     "neutral": {
       "neutral-0": {
-        "value": "#ffffff",
-        "type": "color"
+        "$type": "color",
+        "$value": "#ffffff"
       },
       "neutral-1": {
-        "value": "#fcfcfc",
-        "type": "color"
+        "$type": "color",
+        "$value": "#fcfcfc"
       },
       "neutral-2": {
-        "value": "#f9f9f9",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f9f9f9"
       },
       "neutral-3": {
-        "value": "#f6f6f6",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f6f6f6"
       },
       "neutral-4": {
-        "value": "#f3f3f3",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f3f3f3"
       },
       "neutral-5": {
-        "value": "#f0f0f0",
-        "type": "color"
+        "$type": "color",
+        "$value": "#f0f0f0"
       },
       "neutral-10": {
-        "value": "#e6e6e6",
-        "type": "color"
+        "$type": "color",
+        "$value": "#e6e6e6"
       },
       "neutral-20": {
-        "value": "#c9c9c9",
-        "type": "color"
+        "$type": "color",
+        "$value": "#c9c9c9"
       },
       "neutral-30": {
-        "value": "#adadad",
-        "type": "color"
+        "$type": "color",
+        "$value": "#adadad"
       },
       "neutral-40": {
-        "value": "#919191",
-        "type": "color"
+        "$type": "color",
+        "$value": "#919191"
       },
       "neutral-50": {
-        "value": "#757575",
-        "type": "color"
+        "$type": "color",
+        "$value": "#757575"
       },
       "neutral-60": {
-        "value": "#5c5c5c",
-        "type": "color"
+        "$type": "color",
+        "$value": "#5c5c5c"
       },
       "neutral-70": {
-        "value": "#454545",
-        "type": "color"
+        "$type": "color",
+        "$value": "#454545"
       },
       "neutral-80": {
-        "value": "#333333",
-        "type": "color"
+        "$type": "color",
+        "$value": "#333333"
       },
       "neutral-90": {
-        "value": "#1e1e23",
-        "type": "color"
+        "$type": "color",
+        "$value": "#1e1e23"
       },
       "neutral-100": {
-        "value": "#000000",
-        "type": "color"
+        "$type": "color",
+        "$value": "#000000"
       }
     }
   }

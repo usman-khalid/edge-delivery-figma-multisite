@@ -1,104 +1,104 @@
 {
   "space": {
     "xxxxs": {
-      "value": "0.062rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.062rem"
     },
     "xxxs": {
-      "value": "0.125rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.125rem"
     },
     "xxs": {
-      "value": "0.25rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.25rem"
     },
     "xs": {
-      "value": "0.5rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.5rem"
     },
     "sm": {
-      "value": "1rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "1rem"
     },
     "md": {
-      "value": "1.5rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "1.5rem"
     },
     "lg": {
-      "value": "2rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "2rem"
     },
     "xl": {
-      "value": "2.5rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "2.5rem"
     },
     "xxl": {
-      "value": "4rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "4rem"
     },
     "xxxl": {
-      "value": "5rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "5rem"
     },
     "xs2": {
-      "value": "0.75rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.75rem"
     }
   },
   "radius": {
     "none": {
-      "value": "0rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0rem"
     },
     "xs": {
-      "value": "0.125rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.125rem"
     },
     "sm": {
-      "value": "0.25rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.25rem"
     },
     "md": {
-      "value": "0.5rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.5rem"
     },
     "lg": {
-      "value": "1rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "1rem"
     },
     "xl": {
-      "value": "1.5rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "1.5rem"
     },
     "xxl": {
-      "value": "4rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "4rem"
     },
     "xxxl": {
-      "value": "6.25rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "6.25rem"
     }
   },
   "border": {
     "xs": {
-      "value": "0.062rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.062rem"
     },
     "sm": {
-      "value": "0.125rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.125rem"
     },
     "md": {
-      "value": "0.25rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.25rem"
     },
     "lg": {
-      "value": "0.375rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.375rem"
     },
     "xl": {
-      "value": "0.5rem",
-      "type": "dimension"
+      "$type": "dimension",
+      "$value": "0.5rem"
     }
   }
 }
