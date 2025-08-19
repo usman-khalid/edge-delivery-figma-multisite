@@ -22,6 +22,8 @@ The two sites below are both pointing to this codebase.
 
 The Figma design system integrated with this codebase: https://www.figma.com/design/sFPncyZmw0IKULiw38FBsm/Edge-Delivery-Multi-Site-Design-System?node-id=0-1&p=f&t=PpqiiHWzwNCGLRJ7-0
 
+_Request access to explore variables and token library_
+
 ---
 
 ## Repository structure
@@ -139,6 +141,16 @@ You typically do NOT need to run the design system build locally. A GitHub Actio
 - Global and block styles reference `--ds-*` variables so components update when the theme changes
 
 ---
+
+### DA Plugin
+
+This repository contains a simple example of a DA plugin which shows how the design system can be used to expose relevant authoring options for a content creator.
+
+The `/tokens/da/section-styles.json` file contains a set of background color options applicable as section backgrounds. These tokens are maintained in Figma and a designer can choose what should be available to the author.
+
+The `decorateSections` function in `scripts/scripts.js` is then updated to consume these if one is authored.
+
+This can be extended to apply to block variants and other section styles.
 
 ## Troubleshooting
 
