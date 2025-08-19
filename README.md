@@ -41,7 +41,7 @@ _Request access to explore variables and token library_
 
 ## How the Figma integration works
 
-The build script reads `tokens/$themes.json` and, for each theme, collects the tokens and builds CSS variables with the `ds` prefix (this prefix be changed [here](https://github.com/usman-khalid/edge-delivery-figma-multisite/blob/main/tools/scripts/build-design-system.mjs#L51) to reflect the name of the design system, or removed entirely)
+The build script reads `tokens/$themes.json` and, for each theme, collects the tokens and builds CSS variables.
 
 Example output variables:
 
@@ -54,7 +54,14 @@ Example output variables:
 }
 ```
 
-These variables are consumed across the codebase, for example:
+These variables are consumed across the codebase globally or in blocks, for example:
+
+```css
+.cards > ul > li {
+  border: 1px solid #dadada;
+  background-color: var(--ds-component-card-bg);
+}
+```
 
 ```css
 a:any-link { color: var(--ds-global-link); }
@@ -99,10 +106,8 @@ What this does:
 - Prompts you to select a theme from `styles/themes/`
 - Proxies AEM Pages content for that site via AEM CLI
 - Prints the proxied URL and launches a local server
-
-If the target site requires authentication, you will be prompted for a token.
-
-If multiple sites are being worked on locally, the prompt will automatically pick the next available port on `localhost`.
+- If the target site requires authentication, you will be prompted for a token.
+- If multiple sites are being worked on locally, the prompt will automatically pick the next available port on `localhost`.
 
 ---
 
@@ -117,28 +122,15 @@ For example, if a designer updates the value of the `component-card-bg` token, t
 ## Adding a new theme/site
 
 1. Add a new theme in Figma and update tokens for it accordingly
-2. Add a new site to the [repoless setup](https://www.aem.live/docs/repoless)
-3. Push your changes - the CI workflow will generate `styles/themes/<new-theme>/<new-theme>.css` and auto-commit it to the branch
+2. Add a new [repoless site](https://www.aem.live/docs/repoless)
+3. Push your changes to a branch - the CI workflow will generate `styles/themes/<new-theme>/<new-theme>.css` and auto-commit it to the branch
 4. Add a metadata property to the new site's content to apply the new theme to all pages. Sample: https://da.live/sheet#/usman-khalid/ipsum-da/metadata
-5. Preview your updates and if things are looking good, a PR can be raised to get it into `main`
 
 ---
 
 ### CI Automation
 
-You typically do NOT need to run the design system build locally. A GitHub Actions workflow builds and commits the generated CSS whenever token files change on any non-`main` branch.
-
-- Workflow: `.github/workflows/build-design-system.yaml`
-- Trigger: `push` on branches except `main`, when files under `tokens/**` change
-- Action: runs `npm run build-design-system` and auto-commits the generated CSS back to the same branch
-
----
-
-## Runtime details (how themes are applied)
-
-- `head.html` includes a placeholder link tag: `<link id="theme-styles" rel="stylesheet" href="#">`
-- `scripts/scripts.js` reads `meta[name="theme"]` and sets the link href to `/styles/themes/<theme>/<theme>.css`
-- Global and block styles reference `--ds-*` variables so components update when the theme changes
+You typically do NOT need to run the design system build locally. A GitHub Actions workflow builds and commits the generated CSS whenever token files change on any non `main` branch.
 
 ---
 
@@ -146,28 +138,8 @@ You typically do NOT need to run the design system build locally. A GitHub Actio
 
 This repository contains a simple example of a DA plugin which shows how the design system can be used to govern and expose relevant authoring options for a content creator.
 
-The `/tokens/da/section-styles.json` file contains a set of background color options applicable as section backgrounds. These tokens are maintained in Figma via aliases to the global token library and a designer can choose what should be available to the author.
-
-The `decorateSections` function in `scripts/scripts.js` is then updated to consume these if one is authored.
-
-This can be extended to apply to block variants and other section styles.
+The `/tokens/da/section-styles.json` file contains a set of background color options applicable as section backgrounds. These tokens are added and maintained in Figma via aliases to the global token library and a design lead can choose what should be available to the author.
 
 ![2025-08-19 11 23 03](https://github.com/user-attachments/assets/b01013b5-6ebc-4409-b843-d779cc52527f)
 
 <img width="916" height="602" alt="image" src="https://github.com/user-attachments/assets/859b6ee2-a53c-4a0d-9dd5-ef2f85b077b9" />
-
----
-
-## Troubleshooting
-
-- Theme stylesheet 404
-  - Ensure the theme has been synced correctly and the CSS exists under `styles/themes/<theme>/<theme>.css`
-  - Check that the page has `meta[name="theme"]` matching the theme folder name
-
-- Tokens not taking effect
-  - Verify the token files are in `tokens/` and referenced in `tokens/$themes.json`
-  - Confirm variables in CSS reference the `--ds-*` variables (e.g., `var(--ds-brand-primary)`) correctly
-
-- Local dev cannot reach content
-  - If prompted, provide a valid site token for the proxied AEM Pages URL
-  - Make sure the site exists and is accessible at the printed proxy URL
