@@ -13,7 +13,7 @@ The above are required to correctly utilize multi dimensional theming in using F
 ### Key capabilities
 - Themeable design system generated from Figma Tokens (via Style Dictionary + Tokens Studio transforms)
 - Multisite local dev workflow with AEM CLI proxying to the selected site
-- Sample DA plugin to govern global styling options in the design system 
+- Sample DA plugin which exposes global styling options maintained in the design system (Figma)
 
 ### Sample Sites:
 The two sites below are both pointing to this codebase.
