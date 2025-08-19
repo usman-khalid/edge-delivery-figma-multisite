@@ -110,7 +110,11 @@ function decorateSections(main) {
             .split(',')
             .filter((style) => style)
             .map((style) => toClassName(style.trim()));
-          styles.forEach((style) => section.classList.add(style));
+          styles.forEach((style) => { 
+            section.classList.add(style);
+
+
+          });
         } else {
           section.dataset[toCamelCase(key)] = meta[key];
         }
@@ -134,7 +138,7 @@ export function decorateMain(main) {
   decorateBlocks(main);
 }
 
-async function loadTheme(doc, theme) {
+function loadTheme(doc, theme) {
   const themeCSS = doc.querySelector('#theme-styles');
   themeCSS.href = `${window.hlx.codeBasePath}/styles/themes/${theme}/${theme}.css`;
 }
@@ -147,7 +151,7 @@ async function loadEager(doc) {
   doc.documentElement.lang = 'en';
   decorateTemplateAndTheme();
   const theme = getMetadata('theme');
-  await loadTheme(doc, theme);
+  loadTheme(doc, theme);
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     doc.body.dataset.breadcrumbs = true;
   }
