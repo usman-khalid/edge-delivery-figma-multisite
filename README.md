@@ -144,13 +144,19 @@ You typically do NOT need to run the design system build locally. A GitHub Actio
 
 ### DA Plugin
 
-This repository contains a simple example of a DA plugin which shows how the design system can be used to expose relevant authoring options for a content creator.
+This repository contains a simple example of a DA plugin which shows how the design system can be used to govern and expose relevant authoring options for a content creator.
 
-The `/tokens/da/section-styles.json` file contains a set of background color options applicable as section backgrounds. These tokens are maintained in Figma and a designer can choose what should be available to the author.
+The `/tokens/da/section-styles.json` file contains a set of background color options applicable as section backgrounds. These tokens are maintained in Figma via aliases to the global token library and a designer can choose what should be available to the author.
 
 The `decorateSections` function in `scripts/scripts.js` is then updated to consume these if one is authored.
 
 This can be extended to apply to block variants and other section styles.
+
+![2025-08-19 11 23 03](https://github.com/user-attachments/assets/b01013b5-6ebc-4409-b843-d779cc52527f)
+
+<img width="916" height="602" alt="image" src="https://github.com/user-attachments/assets/859b6ee2-a53c-4a0d-9dd5-ef2f85b077b9" />
+
+---
 
 ## Troubleshooting
 
