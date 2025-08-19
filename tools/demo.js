@@ -4,8 +4,7 @@ import DA_SDK from 'https://da.live/nx/utils/sdk.js';
 
 (async function init() {
   // eslint-disable-next-line no-unused-vars
-  const sdk  = await DA_SDK;
-  console.log(sdk);
+  const { context, token, actions } = await DA_SDK;
   Object.keys(context).forEach((key) => {
     // Heading
     const h3 = document.createElement('h3');
