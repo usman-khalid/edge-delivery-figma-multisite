@@ -1,0 +1,10 @@
+{
+  "bg-brand-primary": {
+    "value": "{brand.brand-primary}",
+    "type": "other"
+  },
+  "bg-brand-secondary": {
+    "value": "{brand.brand-secondary}",
+    "type": "other"
+  }
+}
