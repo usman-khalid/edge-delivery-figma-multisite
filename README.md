@@ -107,7 +107,7 @@ What this does:
 - Prompts you to select a theme from `styles/themes/`
 - Proxies AEM Pages content for that site via AEM CLI
 - Prints the proxied URL and launches a local server
-- If the target site requires authentication, you will be prompted for a token.
+- If the target site requires [authentication](https://www.aem.live/docs/authentication-setup-site), you will be prompted for a token.
 - If multiple sites are being worked on locally, the prompt will automatically pick the next available port on `localhost`.
 
 ---
